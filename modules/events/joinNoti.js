@@ -29,7 +29,7 @@ module.exports.run = async function({ api, event, Users }) {
 	const { threadID } = event;
 	if (event.logMessageData.addedParticipants.some(i => i.userFbId == api.getCurrentUserID())) {
 		api.changeNickname(`[ ${global.config.PREFIX} ] • ${(!global.config.BOTNAME) ? "Rin Cute" : global.config.BOTNAME}`, threadID, api.getCurrentUserID());
-		return api.sendMessage({body: `Đã kết nốt thành công với boxchat\n Cảm ơn các bạn đã sử dụng Hệ thống BotChat Messenger của mình \n Dưới đây là một vài chú ý nhỏ trước khi sử dụng:`, attachment: fs.createReadStream(__dirname + '/cache/joinGif/join.png')}, threadID);
+		return api.sendMessage({body: `Đã kết nốt thành công với boxchat\n Cảm ơn các bạn đã sử dụng Hệ thống BotChat Messenger của mình`, attachment: fs.createReadStream(__dirname + '/cache/joinGif/join.mp4')}, threadID);
 	}
 	else {
 		try {
@@ -38,7 +38,7 @@ module.exports.run = async function({ api, event, Users }) {
 
 			const threadData = global.data.threadData.get(parseInt(threadID)) || {};
 			const path = join(__dirname, "cache", "joinGif");
-			const pathGif = join(path, `join.mp4`);
+			const pathGif = join(path, `join.gif`);
 
 			var mentions = [], nameArray = [], memLength = [], i = 0;
 			
