@@ -3,7 +3,7 @@ module.exports.config = {
     version: "1.0.2",
     hasPermssion: 0,
     credits: "DungUwU",
-    description: "Nói chiện zới bot nino cute",
+    description: "Nói chiện zới bot Rin cute",
     commandCategory: "group",
     usages: "[câu hỏi]/[on,off]",
     cooldowns: 5
@@ -15,7 +15,7 @@ module.exports.onLoad = function() {
     const { writeFileSync, existsSync } = global.nodemodule["fs-extra"];
     const { resolve } = global.nodemodule["path"];
     const log = require(process.cwd() + '/utils/log');
-    const path = resolve(__dirname, 'cache', 'nino.json');
+    const path = resolve(__dirname, 'cache', 'Rin.json');
     if (!existsSync(path)) {
         const obj = {
             nino: {}
@@ -38,7 +38,7 @@ module.exports.handleEvent = async ({ api, event, args, Threads }) => {
       if (event.senderID !== api.getCurrentUserID()) {
       axios.get(encodeURI(`https://adreno-api.rootandroid.repl.co/nino/get/${event.body}`)).then(res => {
             if (res.data.reply == "null" || res.data.reply == "ủa nói j hong hiểu :<") {
-                api.sendMessage("nino ko hiểu, dạy nino đi :<",threadID,messageID)
+                api.sendMessage("Rin ko hiểu, dạy Rin đi :<",threadID,messageID)
             } else {
                 return api.sendMessage(res.data.reply, threadID, messageID);
             }
@@ -59,18 +59,18 @@ module.exports.run = async ({ api, event, args, Threads }) => {
         switch(args[0]) {
             case "on": {
                 nino[threadID] = true;
-                api.sendMessage("bật ninoreply thành công!", threadID);
+                api.sendMessage("bật Rinreply thành công!", threadID);
                 break;
             }
             case "off": {
                 nino[threadID] = false;
-                api.sendMessage("đã tắt ninoreply", threadID);
+                api.sendMessage("đã tắt Rinreply", threadID);
                 break;
             }
             default:
             axios.get(encodeURI(`https://adreno-api.rootandroid.repl.co/nino/get/${args.join(" ")}`)).then(res => {
             if (res.data.reply == "null" || res.data.reply == "ủa nói j hong hiểu :<") {
-                api.sendMessage("nino ko hiểu, dạy nino đi :<",threadID,messageID)
+                api.sendMessage("Rin ko hiểu, Rin nino đi :<",threadID,messageID)
             } else {
                 return api.sendMessage(res.data.reply, threadID, messageID);
             }
