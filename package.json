@@ -1,7 +1,7 @@
 {
     "name": "MiraiBypass",
-    "version": "1.2.14",
-    "description": "Trung Hieu",
+    "version": "1.2.15",
+    "description": "Trung Hiếu",
     "main": "mirai.js",
     "scripts": {
         "start": "node index",
